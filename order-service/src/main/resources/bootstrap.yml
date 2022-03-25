@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: order-service
+  cloud:
+    config:
+      uri: http://config:8888
+      fail-fast: true
+      password: pabbu345
+      username: user
+
+  main:
+    allow-bean-definition-overriding: true

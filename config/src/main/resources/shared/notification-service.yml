@@ -1,0 +1,56 @@
+security:
+  oauth2:
+    client:
+      clientId: notification-service
+      clientSecret: pabbu345
+      accessTokenUri: http://auth-service:5000/uaa/oauth/token
+      grant-type: client_credentials
+      scope: server
+
+server:
+  servlet:
+    context-path: /notifications
+  port: 8000
+
+remind:
+  cron: 0 0 0 * * *
+  email:
+    text: "Hey, {0}! We''ve missed you here on Super13. It''s time to check your statistics.\r\n\r\nCheers,\r\nSupper13 team"
+    subject: Supper13 reminder
+
+backup:
+  cron: 0 0 12 * * *
+  email:
+    text: "Howdy, {0}. Your account backup is ready.\r\n\r\nCheers,\r\nSuper13 team"
+    subject: Super13 account backup
+    attachment: backup.json
+
+spring:
+  data:
+    mongodb:
+      authentication-database: admin
+      host: notification-mongodb
+      username: user
+      password: pabbu345
+      database: super13
+      port: 27017
+  mail:
+    host: smtp.gmail.com
+    port: 25
+    username: shiva.pabbu@gmail.com
+    password: Change@345
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+          ssl:
+            enable: true
+#  spring.mail.host=smtp.xxx.com
+#  spring.mail.username=xxx@xxx.com
+#  spring.mail.password=xxxxx
+#  spring.mail.properties.mail.smtp.auth=true
+#  spring.mail.properties.mail.smtp.starttls.enable=true
+#  spring.mail.properties.mail.smtp.starttls.required=true

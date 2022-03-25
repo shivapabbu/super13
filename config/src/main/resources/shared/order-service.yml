@@ -1,0 +1,26 @@
+security:
+  oauth2:
+    client:
+      clientId: order-service
+      clientSecret: pabbu345
+      accessTokenUri: http://auth-service:5000/uaa/oauth/token
+      grant-type: client_credentials
+      scope: server
+
+spring:
+  data:
+    mongodb:
+      host: order-mongodb
+      username: user
+      password: pabbu345
+      database: super13
+      port: 27017
+
+server:
+  servlet:
+    context-path: /orders
+  port: 9000
+
+feign:
+  hystrix:
+    enabled: true
