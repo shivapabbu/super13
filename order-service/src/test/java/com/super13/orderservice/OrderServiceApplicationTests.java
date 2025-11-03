@@ -10,4 +10,8 @@ class OrderServiceApplicationTests {
     void contextLoads() {
     }
 
+    @Test
+    void testOne() {
+    }
+
 }
